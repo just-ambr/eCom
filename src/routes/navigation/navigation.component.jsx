@@ -10,7 +10,12 @@ import { ReactComponent as CrwnLogo } from "../../assets/crown.svg";
 
 import { userSignOut } from "../../utils/firebase/firebase.utils";
 
-import "./navigation.styles.scss";
+import {
+	NavigationContainer,
+	NavLinks,
+	NavLink,
+	LogoContainer,
+} from "./navigation.styles";
 
 const Navigation = () => {
 	const { currentUser } = useContext(UserContext);
@@ -18,32 +23,55 @@ const Navigation = () => {
 
 	return (
 		<Fragment>
-			<div className="navigation">
-				<Link className="logo-container" to="/">
+			<NavigationContainer>
+				<LogoContainer to="/">
 					<CrwnLogo className="Logo" />
-				</Link>
-				<div className="nav-links-container">
-					<Link className="nav-link" to="/shop">
-						SHOP
-					</Link>
+				</LogoContainer>
+				<NavLinks>
+					<NavLink to="/shop">SHOP</NavLink>
 
 					{currentUser ? (
-						<span className="nav-link" onClick={userSignOut}>
+						<NavLink as="span" onClick={userSignOut}>
 							SIGN OUT
-						</span>
+						</NavLink>
 					) : (
-						<Link className="nav-link" to="/auth">
-							SIGN IN
-						</Link>
+						<NavLink to="/auth">SIGN IN</NavLink>
 					)}
 					<CartIcon />
-				</div>
-				{isCartOpen && <CartDropdown />}{" "}
+				</NavLinks>
+				{isCartOpen && <CartDropdown />}
 				{/*if both true, return the last thing u gave(dropdown)  */}
-			</div>
+			</NavigationContainer>
 			<Outlet />
 		</Fragment>
 	);
 };
 
 export default Navigation;
+
+/* this is all what was before in NavigationContainer/which was a divTag before now its different when using styled components
+
+<div>
+	<Link className="logo-container" to="/">
+		<CrwnLogo className="Logo" />
+	</Link>
+	<div className="nav-links-container">
+		<Link className="nav-link" to="/shop">
+			SHOP
+		</Link>
+
+		{currentUser ? (
+			<span className="nav-link" onClick={userSignOut}>
+				SIGN OUT
+			</span>
+		) : (
+			<Link className="nav-link" to="/auth">
+				SIGN IN
+			</Link>
+		)}
+		<CartIcon />
+	</div>
+	{isCartOpen && <CartDropdown />}{" "}
+	if both true, return the last thing u gave(dropdown)  
+		</div> 
+*/
