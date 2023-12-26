@@ -16,7 +16,7 @@ export const fetchCategoriesFailure = (error) =>
 	createAction(CATEGORIES_ACTION_TYPES.FETCH_CATEGORIES_FAILED, error);
 
 //thunk
-export const fetchCategoriesStartAsync = () => {
+/* export const fetchCategoriesStartAsync = () => {
 	return async (dispatch) => {
 		dispatch(fetchCategoriesStart());
 		try {
@@ -29,3 +29,4 @@ export const fetchCategoriesStartAsync = () => {
 		}
 	};
 };
+ */
