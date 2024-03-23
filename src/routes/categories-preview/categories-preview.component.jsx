@@ -15,6 +15,7 @@ const CategoriesPreview = () => {
 
 	return (
 		<Fragment>
+			<h2>hallo</h2>
 			{isLoading ? (
 				<Spinner />
 			) : (

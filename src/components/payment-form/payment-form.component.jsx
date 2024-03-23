@@ -5,10 +5,10 @@ import { useSelector } from "react-redux";
 import { selectCartTotal } from "../../store/cart/cart.selector";
 import { selectCurrentUser } from "../../store/user/user.selector";
 
-import { FormContainer } from "./payment-form.styles";
-import { BUTTON_TYPE_CLASSES } from "../button/button.component";
+import Button, { BUTTON_TYPE_CLASSES } from "../button/button.component";
 
-import { PaymentFormContainer, PaymentButton } from "./payment-form.styles";
+//import { PaymentFormContainer, PaymentButton, FormContainer } from "./payment-form.styles";
+import "./payment-form.styles.scss";
 
 const PaymentForm = () => {
 	const stripe = useStripe();
@@ -60,17 +60,18 @@ const PaymentForm = () => {
 	};
 
 	return (
-		<PaymentFormContainer>
-			<FormContainer onSubmit={paymentHandler}>
+		<div className="payment-form-container">
+			<form onSubmit={paymentHandler}>
 				<h2>Credit Card Payment: </h2>
 				<CardElement />
-				<PaymentButton
+				<Button
+					type="button"
 					isLoading={isProcessingPayment}
-					buttonType={BUTTON_TYPE_CLASSES.inverted}>
+					buttonType="inverted">
 					Pay now
-				</PaymentButton>
-			</FormContainer>
-		</PaymentFormContainer>
+				</Button>
+			</form>
+		</div>
 	);
 };
 export default PaymentForm;

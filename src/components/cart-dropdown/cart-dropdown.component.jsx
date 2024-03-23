@@ -5,11 +5,12 @@ import Button from "../button/button.component";
 import CartItem from "../cart-item/cart-item.component";
 import { selectCartItems } from "../../store/cart/cart.selector";
 
-import {
-	CartDropdownContainer,
-	EmptyMessage,
-	CartItems,
-} from "./cart-dropdown.styles";
+// import {
+// 	CartDropdownContainer,
+// 	EmptyMessage,
+// 	CartItems,
+// } from "./cart-dropdown.styles";
+import "./cart-dropdown.styles.scss";
 
 const CartDropdown = () => {
 	const cartItems = useSelector(selectCartItems);
@@ -20,18 +21,20 @@ const CartDropdown = () => {
 	};
 
 	return (
-		<CartDropdownContainer>
-			<CartItems>
-				{cartItems.length ? (
+		<div className="cart-dropdown-container">
+			<div className="cart-items">
+				{cartItems.length === 0 ? (
+					<span className="empty-message">
+						Ihr Warenkorb ist leer.
+					</span>
+				) : (
 					cartItems.map((item) => (
 						<CartItem key={item.id} cartItem={item} />
 					))
-				) : (
-					<EmptyMessage>Your cart is empty</EmptyMessage>
 				)}
-			</CartItems>
+			</div>
 			<Button onClick={goToCheckoutHandler}>GO TO CHECKOUT</Button>
-		</CartDropdownContainer>
+		</div>
 	);
 };
 
@@ -69,4 +72,6 @@ const CartDropdown = () => {
 };
 
 export default CartDropdown;
+
+	
 */

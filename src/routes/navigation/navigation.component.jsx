@@ -1,5 +1,5 @@
 import { Fragment } from "react";
-import { Outlet } from "react-router-dom";
+import { Outlet, Link } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 
 import CartIcon from "../../components/cart-icon/cart-icon.component";
@@ -11,12 +11,13 @@ import { signOutStart } from "../../store/user/user.action";
 
 import { ReactComponent as CrwnLogo } from "../../assets/crown.svg";
 
-import {
-	NavigationContainer,
-	NavLinks,
-	NavLink,
-	LogoContainer,
-} from "./navigation.styles";
+// import {
+// 	NavigationContainer,
+// 	NavLinks,
+// 	NavLink,
+// 	LogoContainer,
+// } from "./navigation.styles";
+import "./navigation.styles.scss";
 
 const Navigation = () => {
 	const dispatch = useDispatch();
@@ -27,55 +28,32 @@ const Navigation = () => {
 
 	return (
 		<Fragment>
-			<NavigationContainer>
-				<LogoContainer to="/">
+			<div className="navigation">
+				<Link className="logo-container" to="/">
 					<CrwnLogo className="Logo" />
-				</LogoContainer>
-				<NavLinks>
-					<NavLink to="/shop">SHOP</NavLink>
+				</Link>
+				<div className="nav-links-container">
+					<Link className="nav-link" to="/shop">
+						SHOP
+					</Link>
 
 					{currentUser ? (
-						<NavLink as="span" onClick={signOutUser}>
+						<span className="nav-link" onClick={signOutUser}>
 							SIGN OUT
-						</NavLink>
+						</span>
 					) : (
-						<NavLink to="/auth">SIGN IN</NavLink>
+						<Link className="nav-link" to="/auth">
+							SIGN IN
+						</Link>
 					)}
 					<CartIcon />
-				</NavLinks>
+				</div>
 				{isCartOpen && <CartDropdown />}
 				{/*if both true, return the last thing u gave(dropdown)  */}
-			</NavigationContainer>
+			</div>
 			<Outlet />
 		</Fragment>
 	);
 };
 
 export default Navigation;
-
-/* this is all what was before in NavigationContainer/which was a divTag before now its different when using styled components
-
-<div>
-	<Link className="logo-container" to="/">
-		<CrwnLogo className="Logo" />
-	</Link>
-	<div className="nav-links-container">
-		<Link className="nav-link" to="/shop">
-			SHOP
-		</Link>
-
-		{currentUser ? (
-			<span className="nav-link" onClick={userSignOut}>
-				SIGN OUT
-			</span>
-		) : (
-			<Link className="nav-link" to="/auth">
-				SIGN IN
-			</Link>
-		)}
-		<CartIcon />
-	</div>
-	{isCartOpen && <CartDropdown />}{" "}
-	if both true, return the last thing u gave(dropdown)  
-		</div> 
-*/

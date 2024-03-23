@@ -1,3 +1,57 @@
+.product-card-container {
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+	height: 350px;
+	align-items: center;
+	position: relative;
+	margin-bottom: 20px;
+
+	img {
+		width: 100%;
+		height: calc(100% - 2rem);
+		object-fit: cover;
+		transition: opacity 0.3s ease;
+	}
+
+	.footer {
+		width: 100%;
+		height: 2rem;
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		font-size: 18px;
+		position: absolute;
+		bottom: 0;
+		padding: 0 1rem;
+		color: rgb(0, 0, 0);
+	}
+
+	button {
+		width: 80%;
+		opacity: 0;
+		position: absolute;
+		bottom: 3rem;
+		left: 50%;
+		transform: translateX(-50%);
+		display: none;
+		justify-content: center;
+		align-items: center;
+	}
+
+	&:hover {
+		img {
+			opacity: 0.8;
+		}
+
+		button {
+			opacity: 0.85;
+			display: flex;
+		}
+	}
+}
+
+/*
 import styled from 'styled-components';
 
 export const ProductCartContainer = styled.div`
@@ -50,57 +104,4 @@ export const Name = styled.span`
 
 export const Price = styled.span`
   width: 10%;
-`;
-
-/*
-.product-card-container {
-	width: 100%;
-	display: flex;
-	flex-direction: column;
-	height: 350px;
-	align-items: center;
-	position: relative;
-
-	img {
-		width: 15rem;
-		height: 100%;
-		object-fit: cover;
-	}
-
-	button {
-		width: 80%;
-		opacity: 0.7;
-		position: absolute;
-		top: 255px;
-		display: none;
-	}
-
-	&:hover {
-		img {
-			opacity: 0.8;
-		}
-
-		button {
-			opacity: 0.85;
-			display: flex;
-		}
-	}
-
-	.footer {
-		width: 100%;
-		height: 5%;
-		display: flex;
-		justify-content: space-between;
-		font-size: 18px;
-
-		.name {
-			width: 90%;
-			margin-bottom: 15px;
-		}
-
-		.price {
-			width: 10%;
-		}
-	}
-}
-*/
+`; */
