@@ -1,0 +1,157 @@
+.box-container {
+	background-color: #f0ddd9;
+	padding: 25px 40px;
+	text-align: center;
+	margin-bottom: 3rem; /* Adds space between sections */
+
+	border-radius: 10px;
+	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+
+	.box-header {
+		padding: 0 0 1rem;
+
+		h2 {
+			font-size: 1.3rem;
+			color: #888;
+			text-transform: uppercase;
+			letter-spacing: 1px;
+			margin: 0;
+		}
+
+		h1 {
+			font-size: 1.5rem;
+			margin: 0;
+		}
+	}
+
+	.box-sld-cont {
+		background-color: #fff;
+		border-radius: 10px;
+		box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+		padding: 20px;
+		margin-bottom: 20px; /* Adds space between boxes */
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		text-align: left;
+
+		.box-content {
+			display: flex;
+			flex-direction: row;
+			align-items: center;
+			justify-content: center;
+			background-color: #fff;
+			padding: 20px;
+			height: 350px; /* Adjust height to fit content */
+			max-width: 100%; /* Ensure it takes up full width */
+			overflow: hidden; /* Hide overflow content */
+
+			.img-container {
+				width: 50%; /* Set a fixed width for the container */
+				height: calc(100% - 2rem); /* Adjust the height dynamically */
+				display: flex;
+				justify-content: center;
+				align-items: center;
+				flex: 1;
+
+				.img-slider-img {
+					width: 100%;
+					height: 100%;
+					object-fit: cover; /* Ensure the entire image is visible */
+					border-radius: 10px;
+				}
+			}
+
+			.box-info {
+				flex: 1;
+				padding-left: 20px;
+				display: flex;
+				flex-direction: column;
+				justify-content: flex-start; /* Align items to the start */
+
+				h3 {
+					font-size: 1.5rem;
+					margin-bottom: 10px;
+					color: #333;
+				}
+
+				p {
+					font-size: 1rem;
+					color: #666;
+				}
+
+				button {
+					margin-top: 10px;
+					align-self: flex-start; /* Align the button to the start of the box-info */
+				}
+			}
+		}
+	}
+}
+
+/* das hier war vorher in der componente enthalten und ich speichere es erstmal hier
+		
+
+<>
+			<section className="box-container box1">
+				<div className="box-header">
+					<h2>Text</h2>
+					<h1>Text2</h1>
+				</div>
+
+				<div className="box-sld-cont">
+					<div className="box-content">
+						<div className="box-image">
+							<img src="{}" alt="something" />
+						</div>
+
+						<div className="box-info">
+							<h3>something</h3>
+							<p>a description</p>
+						</div>
+					</div>
+				</div>
+			</section>
+
+			<section className="box-container box2">
+				<div className="box-header">
+					<h2>Text</h2>
+					<h1>Text2</h1>
+				</div>
+
+				<div className="box-sld-cont">
+					<div className="box-content">
+						<div className="box-image">
+							<img src="{}" alt="something" />
+						</div>
+
+						<div className="box-info">
+							<h3>something</h3>
+							<p>a description</p>
+						</div>
+					</div>
+				</div>
+			</section>
+
+			<section className="box-container box3">
+				<div className="box-header">
+					<h2>Text</h2>
+					<h1>Text2</h1>
+				</div>
+
+				<div className="box-sld-cont">
+					<div className="box-content">
+						<div className="box-image">
+							<img src="{}" alt="something" />
+						</div>
+
+						<div className="box-info">
+							<h3>something</h3>
+							<p>a description</p>
+						</div>
+					</div>
+				</div>
+			</section>
+		</>
+
+*/

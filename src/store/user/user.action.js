@@ -1,6 +1,10 @@
 import { USER_ACTION_TYPES } from "./user.types";
 
 import { createAction } from "../../utils/reducer/reducer.utils";
+import {
+	getUserDocument,
+	updateUserDocument,
+} from "../../utils/firebase/firebase.utils";
 
 export const setCurrentUser = (user) =>
 	createAction(USER_ACTION_TYPES.SET_CURRENT_USER, user);
@@ -52,3 +56,26 @@ export const signOutSuccess = () =>
 
 export const signOutFailed = (error) =>
 	createAction(USER_ACTION_TYPES.SIGN_OUT_FAILED, error);
+
+//TODO added for user-profile.comp
+
+export const fetchUserDataStart = (uid) =>
+	createAction(USER_ACTION_TYPES.FETCH_USER_DATA_START, { uid });
+
+export const fetchUserDataSuccess = (userData) =>
+	createAction(USER_ACTION_TYPES.FETCH_USER_DATA_SUCCESS, userData);
+
+export const fetchUserDataFailure = (error) =>
+	createAction(USER_ACTION_TYPES.FETCH_USER_DATA_FAILURE, error);
+
+export const updateUserDataStart = (uid, updatedData) =>
+	createAction(USER_ACTION_TYPES.UPDATE_USER_DATA_START, {
+		uid,
+		updatedData,
+	});
+
+export const updateUserDataSuccess = (updatedData) =>
+	createAction(USER_ACTION_TYPES.UPDATE_USER_DATA_SUCCESS, updatedData);
+
+export const updateUserDataFailure = (error) =>
+	createAction(USER_ACTION_TYPES.UPDATE_USER_DATA_FAILURE, error);

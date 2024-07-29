@@ -1,0 +1,107 @@
+.brand-slider-container {
+	background-color: #f0ddd9;
+	//padding: 25px 40px;
+	padding: 50px 0 0;
+	text-align: center;
+
+	border-radius: 10px;
+	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+
+	.slider-header {
+		//margin-bottom: 20px;
+
+		h2 {
+			font-size: 1.3rem;
+			color: #888;
+			text-transform: uppercase;
+			letter-spacing: 1px;
+			margin: 0;
+		}
+
+		h1 {
+			font-size: 1.5rem;
+			margin: 0;
+		}
+	}
+
+	.brands-slider {
+		background-color: #fff;
+		border-radius: 10px;
+		box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+		background-image: repeating-radial-gradient(
+				circle at 0 0,
+				transparent 0,
+				#f0ddd9 100px
+			),
+			repeating-linear-gradient(#f0ddd9, rgba(123, 189, 227, 0.87));
+		background-color: #f0ddd9;
+
+		.swiper-pagination-bullet {
+			background-color: black;
+		}
+
+		.swiper-button-prev,
+		.swiper-button-next {
+			color: rgb(89, 128, 234);
+		}
+
+		.brands-slider__slide {
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			text-align: left;
+
+			.brand-content {
+				display: flex;
+				flex-direction: row;
+				align-items: center;
+				justify-content: center;
+				background-color: #fff;
+				padding: 20px;
+				border-radius: 10px;
+				box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+				height: 400px; /* Set a fixed height */
+				max-width: 900px; /* Optional: Set a max width */
+				overflow: hidden; /* Hide overflow content */
+
+				.brand-image {
+					display: flex;
+					align-items: center;
+					justify-content: center;
+					flex: 1;
+					img {
+						max-width: 100%;
+						height: auto;
+						border-radius: 10px;
+					}
+				}
+
+				.brand-info {
+					flex: 1;
+					padding-left: 20px;
+					display: flex;
+					flex-direction: column;
+					justify-content: flex-start; /* Align items to the start */
+					overflow-y: auto; /* Enable vertical scrolling if content overflows */
+
+					.brand-count {
+						font-size: 1.2rem;
+						margin-bottom: 10px;
+						color: #888;
+					}
+
+					h3 {
+						font-size: 1.5rem;
+						margin-bottom: 10px;
+						color: #333;
+					}
+
+					p {
+						font-size: 1rem;
+						color: #666;
+					}
+				}
+			}
+		}
+	}
+}

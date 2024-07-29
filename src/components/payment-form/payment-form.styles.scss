@@ -1,13 +1,39 @@
 .payment-form-container {
-	height: 300px;
+	height: 200px;
 	display: flex;
 	flex-direction: column;
 	align-items: center;
 	justify-content: center;
+	margin-bottom: 7rem;
 
 	form {
 		height: 100px;
 		min-width: 500px;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+
+		h2 {
+			margin-bottom: 20px;
+		}
+
+		.CardElement {
+			width: 100%;
+			padding: 10px;
+			border: 1px solid #ccc;
+			border-radius: 4px;
+			margin-bottom: 20px;
+		}
+
+		.payment-button-container {
+			display: flex;
+			justify-content: flex-end;
+			width: 100%;
+
+			button {
+				width: auto;
+			}
+		}
 	}
 }
 

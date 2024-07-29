@@ -8,14 +8,17 @@ import {
 
 import CategoryPreview from "../../components/category-preview/category-preview.component";
 import Spinner from "../../components/spinner/spinner.component";
+import Slider from "../../components/routes-slider/routes-slider.component";
 
 const CategoriesPreview = () => {
 	const categoriesMap = useSelector(selectCategoriesMap);
 	const isLoading = useSelector(selectIsLoading);
 
+	console.log("Categories map in CategoriesPreview:", categoriesMap);
+
 	return (
 		<Fragment>
-			<h2>hallo</h2>
+			<h2>categories-preview.component</h2>
 			{isLoading ? (
 				<Spinner />
 			) : (

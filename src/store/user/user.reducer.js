@@ -11,14 +11,42 @@ export const userReducer = (state = USER_INITIAL_STATE, action = {}) => {
 
 	switch (type) {
 		case USER_ACTION_TYPES.SIGN_IN_SUCCESS:
-			return { ...state, currentUser: payload };
+			return {
+				...state,
+				currentUser: { ...payload, fetched: false },
+				isLoading: false,
+				error: null,
+			};
 		case USER_ACTION_TYPES.SIGN_OUT_SUCCESS:
-			return { ...state, currentUser: null };
+			return {
+				...state,
+				currentUser: null,
+				isLoading: false,
+				error: null,
+			};
+		case USER_ACTION_TYPES.FETCH_USER_DATA_SUCCESS:
+			return {
+				...state,
+				currentUser: { ...payload, fetched: true },
+				isLoading: false,
+				error: null,
+			};
+		case USER_ACTION_TYPES.UPDATE_USER_DATA_SUCCESS:
+			return {
+				...state,
+				currentUser: { ...state.currentUser, ...payload },
+				isLoading: false,
+				error: null,
+			};
 		case USER_ACTION_TYPES.SIGN_OUT_FAILED:
 		case USER_ACTION_TYPES.SIGN_IN_FAILURE:
 		case USER_ACTION_TYPES.SIGN_UP_FAILED:
-			return { ...state, error: payload };
-
+		case USER_ACTION_TYPES.FETCH_USER_DATA_FAILURE:
+		case USER_ACTION_TYPES.UPDATE_USER_DATA_FAILURE:
+			return { ...state, error: payload, isLoading: false };
+		case USER_ACTION_TYPES.FETCH_USER_DATA_START:
+		case USER_ACTION_TYPES.UPDATE_USER_DATA_START:
+			return { ...state, isLoading: true };
 		default:
 			return state;
 	}

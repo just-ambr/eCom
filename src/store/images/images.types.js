@@ -1,0 +1,6 @@
+export const IMAGES_ACTION_TYPES = {
+	// Neue Action-Typen für das Bild-Update
+	FETCH_IMAGES_START: "category/FETCH_IMAGES_START",
+	FETCH_IMAGES_SUCCESS: "category/FETCH_IMAGES_SUCCESS",
+	FETCH_IMAGES_FAILED: "category/FETCH_IMAGES_FAILED",
+};

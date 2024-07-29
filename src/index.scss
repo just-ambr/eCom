@@ -1,4 +1,125 @@
 body {
+	// margin: 0;
+	// padding: 20px 40px;
+
+	//font-family: "Open Sans Condensed", sans-serif;
+	//font-family: Arial, Helvetica, sans-serif;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+
+	// font-family: "Encode Sans Expanded", sans-serif;
+	// font-weight: 200;
+	// font-style: normal;
+
+	font-family: "Anek Malayalam", sans-serif;
+	font-weight: 400;
+
+	font-style: normal;
+
+	// h2 {
+	// 	font-family: "Livvic", sans-serif;
+	// }
+	.h2-title {
+		margin-bottom: 2rem;
+		text-align: center;
+		text-decoration: underline wavy;
+		text-decoration-color: currentColor;
+		text-decoration-thickness: 2.5px;
+		text-underline-offset: 10px;
+
+		//padding: 10px 15px;
+		font-family: "YellowHouse";
+		//font-family: "Black-Sans-Extrabold";
+		//letter-spacing: 1.5px;
+	}
+
+	.wavy-underline {
+		text-decoration: underline wavy;
+		text-decoration-color: currentColor;
+		text-decoration-thickness: 2.5px;
+		text-underline-offset: 5px;
+	}
+
+	h1 {
+		text-align: center;
+	}
+}
+
+code {
+	font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+		monospace;
+}
+
+a {
+	text-decoration: none;
+	color: black;
+}
+
+* {
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+}
+
+//local downloaded fonts
+@font-face {
+	font-family: "Wedges"; /*Can be any text*/
+	src: local("Wedges"), url("./assets/Wedges.ttf") format("truetype");
+}
+
+@font-face {
+	font-family: "Black-Sans-Extrabold"; /*Can be any text*/
+	src: local("Black-Sans"),
+		url("./assets/Blacker-Sans-Extrabold-trial.ttf") format("truetype");
+}
+
+@font-face {
+	font-family: "Black-Sans-Extralight"; /*Can be any text*/
+	src: local("Black-Sans"),
+		url("./assets/Blacker-Sans-Extralight-Italic-trial.ttf")
+			format("truetype");
+}
+
+@font-face {
+	font-family: "Regio"; /*Can be any text*/
+	src: local("Regio"), url("./assets/Reigo-Black.ttf") format("truetype");
+}
+
+@font-face {
+	font-family: "Muftia"; /*Can be any text*/
+	src: local("Muftia"), url("./assets/Muttia.otf") format("truetype");
+}
+
+@font-face {
+	font-family: "Storan"; /*Can be any text*/
+	src: local("Storan"), url("./assets/Storan.ttf") format("truetype");
+}
+
+@font-face {
+	font-family: "YellowHouse"; /*Can be any text*/
+	src: local("YellowHouse"),
+		url("./assets/YellowHouse-Regular.otf") format("truetype");
+}
+
+@font-face {
+	font-family: "Maxwell-Regular"; /*Can be any text*/
+	src: local("Maxwell"),
+		url("./assets/MAXWELL\ REGULAR.ttf") format("truetype");
+}
+
+@font-face {
+	font-family: "Maxwell-Light"; /*Can be any text*/
+	src: local("Maxwell"), url("./assets/MAXWELL\ LIGHT.ttf") format("truetype");
+}
+
+@font-face {
+	font-family: "Maxwell-Bold"; /*Can be any text*/
+	src: local("Maxwell"), url("./assets/MAXWELL\ BOLD.ttf") format("truetype");
+}
+
+/*
+Ausgangscode wie es davor war 23.03.
+body {
 	margin: 0;
 	padding: 20px 40px;
 	font-family: "Open Sans Condensed", sans-serif;
@@ -19,3 +140,5 @@ a {
 * {
 	box-sizing: border-box;
 }
+
+*/

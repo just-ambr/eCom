@@ -1,0 +1,28 @@
+.top-categories {
+	display: flex;
+	justify-content: space-around;
+	align-items: center;
+	width: 100%;
+	padding: 20px 0;
+
+	.category {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		cursor: pointer;
+
+		.category-image {
+			width: 110px; // Größe nach Bedarf anpassen
+			height: 110px; // Machen Sie das Bild quadratisch für perfekte Kreise
+			border-radius: 50%; // Runde Ecken für das Bild
+			margin-bottom: 10px;
+			object-fit: cover; // Stellt sicher, dass das Bild das Container-Element füllt
+		}
+
+		.category-title {
+			text-align: center;
+			color: #333; // Farbe nach Bedarf anpassen
+			font-size: 16px; // Größe nach Bedarf anpassen
+		}
+	}
+}

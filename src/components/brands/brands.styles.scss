@@ -1,0 +1,65 @@
+.text-brands-container {
+	display: flex;
+	flex-direction: row;
+	width: 100%;
+	height: auto;
+	min-height: 70vh;
+	padding: 3rem 0 4rem;
+}
+
+.left-text-container {
+	width: 50%;
+	padding: 20px;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: flex-start;
+}
+
+.left-text-container h1 {
+	font-size: 2rem;
+	margin-bottom: 1rem;
+}
+
+.left-text-container p {
+	font-size: 1rem;
+	line-height: 1.5;
+	margin-bottom: 1.5rem;
+}
+
+.brands-container {
+	width: 90%;
+	display: grid;
+	grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+	grid-gap: 10px;
+	padding: 20px;
+	//background-color: #fff;
+	// background-image: repeating-radial-gradient(
+	// 		circle at 0 0,
+	// 		transparent 0,
+	// 		#b5d2e0 100px
+	// 	),
+	// 	repeating-linear-gradient(#7db39c, #7db39c);
+	// background-color: #b5d2e0;
+}
+
+.brand-box {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	height: 80px;
+	width: 80px;
+	border-radius: 50%;
+	background-color: #fff;
+	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+	overflow: hidden;
+	border: 2px solid #fff; /* Added border to blend with background */
+}
+
+.brand-img {
+	height: 100%;
+	width: 100%;
+	object-fit: contain;
+	border-radius: 50%;
+	background-color: #fff; /* Added background color to match white images */
+}

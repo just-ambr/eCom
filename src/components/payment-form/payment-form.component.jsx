@@ -7,10 +7,9 @@ import { selectCurrentUser } from "../../store/user/user.selector";
 
 import Button, { BUTTON_TYPE_CLASSES } from "../button/button.component";
 
-//import { PaymentFormContainer, PaymentButton, FormContainer } from "./payment-form.styles";
 import "./payment-form.styles.scss";
 
-const PaymentForm = () => {
+const PaymentForm = ({ userData, isFormComplete, showForm, isLoggedIn }) => {
 	const stripe = useStripe();
 	const elements = useElements();
 	const amount = useSelector(selectCartTotal);
@@ -23,6 +22,15 @@ const PaymentForm = () => {
 		if (!stripe || !elements) {
 			return;
 		}
+
+		if (!isFormComplete()) {
+			alert("Please fill in the following fields before you buy.");
+
+			showForm();
+			return;
+		}
+
+		setIsProcessingPayment(true);
 
 		//netlify function (first serverless function)
 		const response = await fetch(
@@ -37,13 +45,21 @@ const PaymentForm = () => {
 		).then((res) => res.json());
 
 		const clientSecret = response.paymentIntent.client_secret;
-		// or like this  const {paymentIntent: {client_secret}} = response;
 
 		const paymentResult = await stripe.confirmCardPayment(clientSecret, {
 			payment_method: {
 				card: elements.getElement(CardElement),
+
 				billing_details: {
-					name: currentUser ? currentUser.displayName : "Guest",
+					// davor so --> name: currentUser ? currentUser.displayName : "Guest",
+					name: isLoggedIn
+						? currentUser.displayName
+						: `${userData.firstName} ${userData.lastName}`,
+					email: userData.email,
+					address: {
+						line1: `${userData.street} ${userData.houseNumber}`,
+						postal_code: userData.zipCode,
+					},
 				},
 			},
 		});
@@ -63,15 +79,18 @@ const PaymentForm = () => {
 		<div className="payment-form-container">
 			<form onSubmit={paymentHandler}>
 				<h2>Credit Card Payment: </h2>
-				<CardElement />
-				<Button
-					type="button"
-					isLoading={isProcessingPayment}
-					buttonType="inverted">
-					Pay now
-				</Button>
+				<CardElement className="CardElement" />
+				<div className="payment-button-container">
+					<Button
+						type="submit"
+						isLoading={isProcessingPayment}
+						buttonType="inverted">
+						Pay now
+					</Button>
+				</div>
 			</form>
 		</div>
 	);
 };
+
 export default PaymentForm;

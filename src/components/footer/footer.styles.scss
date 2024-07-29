@@ -1,0 +1,110 @@
+$logo-blue-color: #82bbe4; //dunkler davor #609ecb;
+$main-color: black;
+
+// Basis-Stile für Textelemente
+.base-text-style {
+	-webkit-text-size-adjust: 100%;
+	font-size: 15px;
+	line-height: 1.5;
+
+	font-family: "Livvic", sans-serif;
+	font-weight: 400;
+	font-style: normal;
+
+	text-align: center !important;
+	color: black !important;
+	box-sizing: inherit;
+}
+
+#main-content {
+	display: flex;
+	flex-direction: column;
+	min-height: 100vh auto;
+}
+
+.footer-container {
+	//position: fixed;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	width: 100%; // sorgt dafür, dass der Footer die gesamte Breite einnimmt
+
+	z-index: 1; // sorgt dafür, dass der Footer über anderen Elementen schwebt
+	margin-top: auto;
+}
+
+// Spezifische Stile für .svg-container und seine Kind-Elemente
+.svg-container {
+	@extend .base-text-style;
+	width: 100%;
+	display: block;
+	overflow: hidden;
+
+	.path-comp {
+		// Verschachtelt innerhalb von .svg-comp für Kontextspezifität
+		fill-rule: evenodd;
+		clip-rule: evenodd;
+		fill: $logo-blue-color;
+		d: path(
+			"M 141.726 45.4514 L 0 0 V 409.063 H 140.486 H 851.18 H 1698.23 H 2549.41 H 3400.59 H 4251.77 H 5098.82 H 5950 V 189.243 C 5938.41 191.46 5926.82 193.683 5915.25 195.905 C 5642.01 248.332 5371.94 300.154 5098.82 265.271 C 4981.35 249.378 4863.23 216.296 4744.97 183.176 C 4580.38 137.076 4415.51 90.9028 4251.77 90.9028 C 4061.21 90.9028 3871.39 151.819 3682.05 212.577 C 3588.12 242.721 3494.31 272.826 3400.59 295.434 C 3115.49 363.611 2833.27 363.611 2549.41 318.16 C 2445.26 301.311 2340.53 278.217 2235.46 255.045 C 2057.07 215.705 1877.65 176.138 1698.23 166.517 C 1557.84 159.704 1416.73 170.738 1275.46 181.783 C 1134 192.843 992.382 203.916 851.18 197.094 C 567.058 181.858 285.398 91.5281 143.195 45.9227 L 141.726 45.4514 Z"
+		);
+	}
+}
+
+// Spezifische Stile für .green
+.green {
+	@extend .base-text-style;
+	line-height: 5.5; // Überschreibt die Basis line-height nur für .green
+	background-color: $logo-blue-color !important;
+	color: white !important;
+	margin-top: 0;
+	position: relative;
+	bottom: 5px;
+
+	//padding: 20px 0; // Reduziertes Padding für den .green Bereich
+}
+//____________________________
+// Flex-Container für den Inhalt des Footers
+.footer-content {
+	display: flex;
+	justify-content: space-between; // Verteilt die Inhalte gleichmäßig
+	align-items: flex-start; // Ändert alignment, um den Abstand oben zu minimieren
+	padding: 0 200px 30px 40px; // Horizontale Padding auf beiden Seiten
+	flex-wrap: wrap; // Ermöglicht Umbruch bei kleinen Bildschirmen
+	bottom: 0.4px; //LINIEE
+}
+
+.logo-section {
+	display: flex;
+	align-items: center;
+	flex-direction: column; // Stapelt Logo über dem Copyright-Text
+
+	padding-left: 20px; // Entfernt den unteren Abstand im Logo-Bereich
+
+	.logo {
+		width: 160px;
+		height: auto;
+		display: block;
+	}
+}
+
+// Wiederholende Stile für alle Link-Sektionen
+.link-section {
+	color: #fff;
+	margin: 0 2em; // Gleichmäßiger horizontaler Abstand
+
+	h4 {
+		//margin: 0 0 10px 0; // Setzt spezifische Abstände fest
+	}
+
+	ul {
+		list-style: none; // Keine Listenpunkte
+		padding: 0; // Kein Padding
+		margin: 0; // Kein Margin
+
+		li {
+			margin-bottom: 0; // Abstand zwischen den Listenelementen
+			line-height: 1.2em; // Setzt die Zeilenhöhe auf normal
+		}
+	}
+}

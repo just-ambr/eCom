@@ -9,6 +9,10 @@ import {
 	signUpFailed,
 	signOutSuccess,
 	signOutFailed,
+	fetchUserDataSuccess,
+	fetchUserDataFailure,
+	updateUserDataSuccess,
+	updateUserDataFailure,
 } from "./user.action";
 
 import {
@@ -18,6 +22,8 @@ import {
 	userAuthSignInWithEmailAndPassword,
 	userAuthCreationWithEmailAndPassword,
 	userSignOut,
+	getUserDocument,
+	updateUserDocument,
 } from "../../utils/firebase/firebase.utils";
 
 export function* getSnapshotFromUserAuth(userAuth, additionalDetails) {
@@ -91,6 +97,27 @@ export function* signInAfterSignUp({ payload: { user, additionalDetails } }) {
 	yield call(getSnapshotFromUserAuth, user, additionalDetails);
 }
 
+//TODO added this in for user-profile.comp
+export function* fetchUserData({ payload: { uid } }) {
+	try {
+		const userData = yield call(getUserDocument, uid);
+		yield put(fetchUserDataSuccess(userData));
+	} catch (error) {
+		yield put(fetchUserDataFailure(error));
+	}
+}
+
+export function* updateUserData({ payload: { uid, updatedData } }) {
+	try {
+		yield call(updateUserDocument, uid, updatedData);
+		yield put(updateUserDataSuccess(updatedData));
+	} catch (error) {
+		yield put(updateUserDataFailure(error));
+	}
+}
+
+//TODO ENDE
+
 export function* onGoogleSignInStart() {
 	yield takeLatest(USER_ACTION_TYPES.GOOGLE_SIGN_IN_START, signInWithGoogle);
 }
@@ -115,6 +142,16 @@ export function* onSignOutStart() {
 	yield takeLatest(USER_ACTION_TYPES.SIGN_OUT_START, signOut);
 }
 
+//TODO added this in for user-profile.comp
+export function* onFetchUserDataStart() {
+	yield takeLatest(USER_ACTION_TYPES.FETCH_USER_DATA_START, fetchUserData);
+}
+
+export function* onUpdateUserDataStart() {
+	yield takeLatest(USER_ACTION_TYPES.UPDATE_USER_DATA_START, updateUserData);
+}
+//TODO ENDE
+
 export function* userSagas() {
 	yield all([
 		call(onCheckUserSession),
@@ -123,5 +160,7 @@ export function* userSagas() {
 		call(onSignUpStart),
 		call(onSignUpSuccess),
 		call(onSignOutStart),
+		call(onFetchUserDataStart),
+		call(onUpdateUserDataStart),
 	]);
 }

@@ -1,0 +1,152 @@
+$logo-blue-color: #609ecb; //minimmal dunkler gemmacht, davor #82bbe4;
+$main-color: black;
+
+.user-profile-container {
+	display: flex;
+}
+
+.sidebar {
+	width: 230px;
+	background-color: #f8f8f8;
+	padding: 30px 48px;
+	border-right: 1px solid #eaeaea;
+
+	ul {
+		list-style-type: none;
+		padding: 0;
+
+		li {
+			padding: 10px 0;
+			cursor: pointer;
+			color: $logo-blue-color;
+
+			&:hover {
+				text-decoration: underline;
+			}
+		}
+	}
+}
+
+.content {
+	flex: 1;
+	padding: 50px 130px;
+}
+
+.profile-section,
+.purchases-section,
+.favorites-section {
+	max-width: 700px;
+	margin: 20px auto;
+}
+
+h2 {
+	color: $logo-blue-color;
+	margin-bottom: 20px;
+}
+
+.user-info {
+	display: flex;
+	justify-content: space-between;
+	margin-bottom: 10px;
+
+	label {
+		font-weight: bold;
+		width: 200px;
+	}
+
+	input,
+	select,
+	span {
+		flex: 1;
+		margin-left: 10px;
+		padding: 5px;
+		border: 1px solid #eaeaea;
+		border-radius: 4px;
+	}
+
+	span {
+		background-color: #f8f8f8;
+		padding: 10px;
+	}
+
+	a {
+		color: $logo-blue-color;
+		text-decoration: none;
+
+		&:hover {
+			text-decoration: underline;
+		}
+	}
+}
+
+button {
+	display: block;
+	width: 100%;
+	padding: 10px;
+	background-color: $logo-blue-color;
+	color: white;
+	border: none;
+	border-radius: 4px;
+	cursor: pointer;
+	text-align: center;
+	font-size: 16px;
+	margin-top: 20px;
+
+	&:hover {
+		background-color: $logo-blue-color;
+	}
+}
+
+table {
+	width: 100%;
+	border-collapse: collapse;
+
+	th,
+	td {
+		border: 1px solid #eaeaea;
+		padding: 10px;
+		text-align: left;
+	}
+
+	th {
+		background-color: #f8f8f8;
+	}
+
+	td button {
+		background-color: $logo-blue-color;
+		color: white;
+		border: none;
+		border-radius: 4px;
+		cursor: pointer;
+		text-align: center;
+		font-size: 14px;
+
+		&:hover {
+			background-color: $logo-blue-color;
+		}
+	}
+}
+
+.favorite-category {
+	margin-bottom: 20px;
+
+	h3 {
+		color: $logo-blue-color;
+		margin-bottom: 10px;
+	}
+
+	.favorite-items {
+		display: flex;
+		flex-wrap: wrap;
+
+		.favorite-item {
+			width: 150px;
+			margin-right: 20px;
+			margin-bottom: 20px;
+			padding: 10px;
+			border: 1px solid #eaeaea;
+			border-radius: 4px;
+			text-align: center;
+		}
+	}
+}

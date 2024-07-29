@@ -1,6 +1,14 @@
-.product-card-container {
-	display: grid;
-	grid-template-columns: repeat(4, 1fr);
-	column-gap: 10px;
-	row-gap: 50px;
+// .product-card-container {
+// 	display: grid;
+// 	grid-template-columns: repeat(4, 1fr);
+// 	column-gap: 10px;
+// 	row-gap: 50px;
+// 	//background-color: yellow;
+// }
+
+.shop-container {
+	margin: 0;
+	padding: 20px 40px;
 }
+
+/* brauche ich product cart container ? weil der reagiert irgendwie und ich weiß nicht warum*/

@@ -1,27 +1,50 @@
 .navigation {
 	height: 70px;
-	width: 100%;
 	display: flex;
-	justify-content: space-between;
-	margin-bottom: 25px;
-
-	.logo-container {
-		height: 100%;
-		width: 70px;
-		padding: 25px;
-	}
+	//justify-content: space-between; bevor man drowdown close hinzugefügthat war es space-between, hat sich aber komisch verschoben daher nun end
+	justify-content: end; //TODO gucken was end und flexend ist1
+	padding: 0 20px;
+	//background-color: rgb(214, 163, 35);
+	//background-color: #abdaf8;
+	position: relative;
+	margin: 9px 0 0;
 
 	.nav-links-container {
-		width: 50%;
+		width: calc(50% - 42.5px); // 50% minus halbe Logo-Breite
 		height: 100%;
 		display: flex;
 		align-items: center;
 		justify-content: flex-end;
+		//background-color: rgb(77, 35, 214);
 
 		.nav-link {
 			padding: 10px 15px;
 			cursor: pointer;
 		}
+	}
+
+	.logo-container {
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%, -50%);
+		height: 100%;
+		width: 85px;
+	}
+
+	.logo {
+		width: 100%;
+		height: 100%;
+		object-fit: cover;
+	}
+
+	// Füge eine leere div vor der .nav-links-container hinzu, um das Gleichgewicht zu halten
+	.nav-spacer {
+		width: calc(50% - 42.5px); // 50% minus halbe Logo-Breite
+		height: 100%;
+		display: flex;
+		align-items: center;
+		justify-content: flex-start;
 	}
 }
 

@@ -14,7 +14,7 @@ import { type } from "@testing-library/user-event/dist/type";
 const persistConfig = {
 	key: "root",
 	storage,
-	whitelist: ["cart"],
+	whitelist: ["cart", "user"], // Hinzufügen von 'user'
 };
 
 const sagaMiddleware = createSagaMiddleware();

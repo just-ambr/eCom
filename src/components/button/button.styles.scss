@@ -54,7 +54,13 @@ export const InvertedButton = styled(BaseButton)`
 export const ButtonSpinner = styled(SpinnerContainer)`
 	width: 30px;
 	height: 30px;
-`; */
+`; 
+$logo-blue-color: #82bbe4; //dunkler davor #609ecb;
+
+*/
+
+$logo-blue-color: #82bbe4;
+$logo-blue-darken-color: #609ecb;
 
 .button-container {
 	min-width: 165px;
@@ -81,11 +87,11 @@ export const ButtonSpinner = styled(SpinnerContainer)`
 	}
 
 	&.google-sign-in {
-		background-color: #4285f4;
+		background-color: $logo-blue-darken-color;
 		color: white;
 
 		&:hover {
-			background-color: #357ae8;
+			background-color: $logo-blue-color;
 			border: none;
 		}
 	}
